@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { BuzzComponent } from "../../components/buzz/buzz.component";
 
 @Component({
@@ -8,6 +8,10 @@ import { BuzzComponent } from "../../components/buzz/buzz.component";
     styleUrl: './home.component.css',
     imports: [BuzzComponent]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+    
+    constructor() { }
 
+    ngOnInit(): void {
+    }
 }

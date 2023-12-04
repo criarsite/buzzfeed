@@ -1,28 +1,38 @@
-<div class="container">
+<div class="NGcontainer">
 
-    <div class="logo">
-      <img src="assets/imgs/logo.png" alt="" srcset="">
-      <h3>{{title}}</h3>
+    <div class="NGlogo">
+        <img src="assets/imgs/logo.png" alt="" srcset="">
+        <br>
+        <h1>{{title}}</h1>
     </div>
-  
-    <div *ngIf="!finished"  class="questions">
-        <h3>{{questionSelected.question}}</h3>
+@if (!finished) {
+    <div class="NGquestions">
+        <h3>{{questionIndex+1}}/{{questionMaxIndex}} - {{questionsSelected.question}}</h3>
     </div>
-  
-    <div *ngIf="!finished" class="options">
-  
-      <button
-        *ngFor="let option of questionSelected.options; let i = index"
-        (click)="playerChoose(option.alias)"
-        class="btn-option"
-      >
-        {{option.name}}
-      </button>
-  
+
+        
+
+       
+
+        <div class="NGoptions">
+            @for ( option of questionsSelected.options; track $index) {
+                <button   (click)="playerChoose(option.alias)" class="NGbtn-option">
+                    {{option.name}}
+                </button>
+            }
+          
+        </div>
+
+
+    } @else {
+        <div  class="NGresults">
+   
+            <h2>{{answerSelected}}</h2>
+     
+       
     </div>
-  
-    <div *ngIf=finished class="results">
-      <h1>O Seu resultado é:</h1>
-      <p>{{answerSelected}}</p>
-    </div>
-  </div>
+    }
+
+    
+
+</div>
